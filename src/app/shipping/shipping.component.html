@@ -1,0 +1,41 @@
+<br>
+<div class="row">
+  
+  <div class="col-md-6 offset-md-3">
+
+    <p>
+      <a routerLink="/productos">Volver a Productos</a>
+    </p>
+    <p>
+      <a routerLink="/accessories">Volver a Accesorios</a>
+    </p>
+    
+    <div class="d-flex justify-content-end">
+      <a routerLink="/cart" class="btn btn-success">Carrito</a>
+      
+    </div>
+    <br>
+    <div class="card mb-4">
+      
+      <div class="card-body">
+        <h3 class="card-title">Opciones de envío</h3>
+        <div *ngFor="let shipping of shippingCosts | async" class="list-group-item d-flex justify-content-between">
+          <div>
+            <span>{{ shipping.type }}</span>
+            <span>{{ shipping.price | currency }}</span>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="addShippingToCart(shipping)" >Seleccionar</button>
+        </div>
+      </div>
+      <ng-template #loading>
+        <div class="text-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Cargando...</span>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+

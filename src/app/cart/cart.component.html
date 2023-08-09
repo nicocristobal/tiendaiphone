@@ -1,0 +1,81 @@
+
+<div class="container">
+  <br>
+  <p>
+    <a routerLink="/productos">Volver a Productos</a>
+  </p>
+  <p>
+    <a routerLink="/accessories">Volver a Accesorios</a>
+  </p>
+  <p>
+    <a routerLink="/shipping">Volver a Opciones de Envío</a>
+  </p>
+  
+    <h2 class="text-center mt-5 mb-4">Carrito de compras</h2>
+    <div class="d-flex justify-content-between align-items-center">
+      <button type="button" class="btn btn-secondary mt-3" (click)="clearCart()">Vaciar carrito</button>
+      <!-- Buiding de propiedades: Se ha utilizado para establecer una comunicacion entre el componente y la vista.-->
+      <p class="text-center total-price" style="font-size: 1.2rem;">Total: {{ getTotalPriceWithShippingAccessories() | currency }}</p>
+      <button [routerLink]="['/payment-form']" type="submit" class="btn btn-primary btn-danger">Pagar</button>
+    </div>
+    
+  
+    
+    <div class="my-3"></div>
+    
+    
+  
+    <div class="cart-item" *ngFor="let item of items">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img [src]="item.image" alt="{{ item.name }} Image" class="card-img">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p class="card-text">{{ item.description }}</p>
+              <p class="card-text"><small class="text-muted font-large">{{ item.price | currency }}</small></p>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-secondary" (click)="removeProduct(item)">Quitar del carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- sección de accesorios -->
+
+ <!-- *ngIf: mostrar o ocultar un elemento HTLM según una condición especificada, 
+          en este caso verifica si la longitud del arreglo de acc es mayor a 0 
+          si es true muestra el contenido, si es false no se mostrará en la página-->
+<div class="my-3" *ngIf="accessories.length > 0">
+  <h3>Accesorios Agregados</h3>
+
+  <!-- *ngFor: iterar sobre una colección, como un arreglo, y generar elementos HTML repetidos para cada elemento 
+    de colección. Dentro del bloque repetido, se encuentra el tipo del accesorio y su precio {{}} -->
+  <div *ngFor="let accessorie of accessories" class="accessorie-item font-large">
+    <div class="d-flex justify-content-between">
+      <span>{{ accessorie.type }}</span>
+      <span>{{ accessorie.price | currency }}</span>
+      <div>
+        <button type="button" class="btn btn-secondary" (click)="removeAccessorie(accessorie)">Quitar del carrito</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- sección de envíos -->
+<div class="my-3" *ngIf="shippings.length > 0">
+  <h3>Envío seleccionado</h3>
+  <div *ngFor="let shipping of shippings" class="shipping-item font-large">
+    <div class="d-flex justify-content-between">
+      <span>{{ shipping.type }}</span>
+      <span>{{ shipping.price | currency }}</span>
+      <div>
+        <button type="button" class="btn btn-secondary" (click)="removeShipping(shipping)">Quitar del carrito</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+/* cart.component.css */
+
+/* Clase para cambiar el tamaño de la letra del total de precios */
+.total-price {
+    font-size: 1.4rem; /* Ajusta el tamaño de la letra según sea necesario */
+  }
+
+.font-large {
+        font-size: 1.1rem; /* Puedes ajustar el tamaño según tus necesidades */
+  }

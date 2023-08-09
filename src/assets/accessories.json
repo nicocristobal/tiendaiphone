@@ -1,0 +1,22 @@
+[
+    {
+      "type": "Cargador ",
+      "price": 12
+    },
+    {
+      "type": "Cable USB ",
+      "price": 10
+    },
+    {
+      "type": "Auriculares ",
+      "price": 15
+    },
+    {
+      "type": "Funda ",
+      "price": 11
+    },
+    {
+      "type": "Vidrio protector ",
+      "price": 5
+    }
+  ]

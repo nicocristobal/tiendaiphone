@@ -1,0 +1,14 @@
+[
+    {
+      "type": "Retirar en Comercio ",
+      "price": 0
+    },
+    {
+      "type": "Retirar en Sucursal Correo ",
+      "price": 10
+    },
+    {
+      "type": "A Domicilio ",
+      "price": 15
+    }
+  ]

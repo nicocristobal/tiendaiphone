@@ -1,0 +1,43 @@
+<br>
+<div class="container">
+
+  
+    <div class="d-flex justify-content-start">
+      <!-- Agregar campo de búsqueda -->
+      <input type="text" [(ngModel)]="searchProductName" class="form-control mr-2 small-search-input" placeholder="iPhone ...">
+      <!-- Botón para realizar la búsqueda -->
+      <button type="button" class="btn btn-primary" (click)="searchProductByName()">Buscar</button>
+    </div>
+  
+
+    <div class="d-flex justify-content-end mt-3">
+      <a routerLink="/accessories" class="btn btn-success">Agregar Accesorios</a>
+    </div>
+    
+    <br>
+    <div class="d-flex justify-content-end">
+      <!-- Se utiliza la directiva routerLink para navegar al compomente cart.component -->
+      <a routerLink="/cart">Ir a Carrito</a>
+    </div>
+
+</div>
+
+<div class="container">
+  <h2 class="mt-5 mb-4">Productos</h2>
+
+  <div class="row">
+    <!-- Interpolación de string: mostrar datos dinámicos en las vistas -->
+    <div class="col-md-4" *ngFor="let product of products | async">
+      <div class="card mb-4">
+        <img [src]="product.image" alt="{{ product.name }} Image" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ product.price | currency }}</h6>
+          <p class="card-text">{{ product.description }}</p>
+          <!-- Binding de eventos: se ha utilizado para escuchar y reaccionar a eventos generados por el usuario  -->
+          <button type="button" class="btn btn-primary" (click)="addToCart(product)">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

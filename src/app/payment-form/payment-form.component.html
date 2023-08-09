@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="col-md-6 offset-md-3">
+    <p>
+      <a routerLink="/cart">Volver a Carrito</a>
+    </p>
+    <h2 class="text-center mt-5">Datos de Envío</h2>
+  <form [formGroup]="shippingForm" class="mt-4">
+    <div class="mb-3">
+      <label for="address" class="form-label">Dirección de Envío</label>
+      <input type="text" class="form-control" id="address" formControlName="address">
+    </div>
+    <div class="mb-3">
+      <label for="city" class="form-label">Ciudad</label>
+      <input type="text" class="form-control" id="city" formControlName="city">
+    </div>
+    <div class="mb-3">
+      <label for="postalCode" class="form-label">Código Postal</label>
+      <input type="text" class="form-control" id="postalCode" formControlName="postalCode">
+    </div>
+  </form>
+
+
+  <h2 class="text-center mt-5">Pago con Tarjeta</h2>
+  <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()" class="mt-4">
+    <div class="mb-3">
+      <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+      <input type="text" class="form-control" id="cardNumber" formControlName="cardNumber">
+    </div>
+    <div class="mb-3">
+      <label for="expirationDate" class="form-label">Fecha de Vencimiento</label>
+      <input type="text" class="form-control" id="expirationDate" formControlName="expirationDate">
+    </div>
+    <div class="mb-3">
+      <label for="securityCode" class="form-label">Código de Seguridad</label>
+      <input type="text" class="form-control" id="securityCode" formControlName="securityCode">
+    </div>
+    <button type="submit" class="btn btn-primary">Confirmar</button>
+  </form>
+</div>
+
+  
+</div>
